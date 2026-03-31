@@ -1,0 +1,26 @@
+import type { Config } from 'jest';
+
+const config: Config = {
+  preset: 'jest-preset-angular',
+  setupFilesAfterFramework: ['<rootDir>/setup-jest.ts'],
+  setupFilesBeforeEach: undefined,
+  testEnvironment: 'jsdom',
+  transform: {
+    '^.+\\.(ts|js|html|svg)$': [
+      'jest-preset-angular',
+      {
+        tsconfig: '<rootDir>/tsconfig.spec.json',
+        stringifyContentPathRegex: '\\.html$',
+      },
+    ],
+  },
+  collectCoverageFrom: [
+    'src/**/*.ts',
+    '!src/main.ts',
+    '!src/**/*.d.ts',
+  ],
+  coverageReporters: ['html', 'text-summary'],
+  testPathPattern: 'src/.*\\.spec\\.ts$',
+};
+
+export default config;

@@ -1,0 +1,97 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.modal-container {
+  gap: 0;
+  max-width: none;
+  min-width: 500px;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.form-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.form-subtitle {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.modal-title {
+  font-size: 20px;
+  padding: 16px 24px;
+  border-bottom: 0;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.form-card {
+  border-radius: 12px !important;
+  padding: 24px !important;
+}
+
+.modal-container .form-card {
+  padding: 0 24px 24px !important;
+}
+
+.form-section {
+  padding: 0 0 24px;
+}
+
+.section-title {
+  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.invoice-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.flex-field {
+  flex: 1;
+  min-width: 200px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.modal-actions {
+  margin-bottom: 0;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}

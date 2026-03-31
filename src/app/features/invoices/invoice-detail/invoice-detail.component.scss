@@ -1,0 +1,38 @@
+.detail-container { display: flex; flex-direction: column; gap: 24px; max-width: 700px; margin: 0 auto; }
+.detail-header { display: flex; align-items: center; gap: 12px; }
+.detail-title { margin: 0; font-size: 24px; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em; }
+.spacer { flex: 1; }
+
+.detail-card { border-radius: 12px !important; overflow: hidden; padding: 0 !important; }
+.invoice-hero { display: flex; align-items: center; gap: 24px; padding: 32px 24px; background: var(--bg-surface); }
+.invoice-badge {
+  width: 64px; height: 64px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+
+/* Badge status colors */
+.invoice-badge.status-paid { background-color: var(--success-bg); color: var(--success-text); }
+.invoice-badge.status-pending { background-color: var(--warning-bg); color: var(--warning-text); }
+.invoice-badge.status-overdue { background-color: var(--danger-bg); color: var(--danger-text); }
+.invoice-badge.status-cancelled { background-color: var(--border-light); color: var(--text-muted); }
+.invoice-badge mat-icon { font-size: 32px; width: 32px; height: 32px; }
+
+.invoice-customer { margin: 0 0 6px; font-size: 22px; font-weight: 700; color: var(--text-main); letter-spacing: -0.01em; }
+.invoice-id { margin: 0 0 12px; color: var(--text-muted); font-size: 14px; font-weight: 500; }
+
+/* status-chip is handled globally, but keep this for specific usage if needed */
+
+.invoice-amount-block { text-align: right; }
+.amount-label { display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+.amount-value { display: block; font-size: 32px; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em; }
+
+.detail-fields { padding: 24px; display: flex; flex-direction: column; gap: 20px; }
+.field-row { display: flex; align-items: flex-start; gap: 16px; }
+.field-icon { color: var(--primary-600); flex-shrink: 0; font-size: 20px; width: 20px; height: 20px; margin-top: 2px; }
+.field-data { display: flex; flex-direction: column; gap: 4px; }
+.field-label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.field-value { font-size: 15px; color: var(--text-main); font-weight: 500; }
+
+.not-found { text-align: center; padding: 64px; color: var(--text-muted); }
+.not-found mat-icon { font-size: 64px; width: 64px; height: 64px; color: var(--border-dark); margin-bottom: 16px; }
+.not-found p { font-size: 18px; margin-bottom: 24px; }
