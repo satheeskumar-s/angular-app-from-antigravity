@@ -1,0 +1,83 @@
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+}
+
+.list-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.table-card {
+  padding: 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.table-toolbar {
+  padding: 16px 24px 0;
+  display: flex;
+  justify-content: flex-end;
+  background: var(--bg-surface);
+}
+
+.search-field {
+  width: 300px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.customer-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-name {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.booking-ref {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Status chips are handled globally via styles.scss */
+
+.actions-header {
+  width: 120px;
+  text-align: right;
+  padding-right: 24px !important;
+}
+
+.actions-cell {
+  text-align: right;
+  white-space: nowrap;
+  padding-right: 16px !important;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px;
+  color: var(--text-muted);
+}
+

@@ -1,0 +1,76 @@
+<div class="form-container" [ngClass]="{'modal-container': isModal}">
+  <div class="form-header">
+    <button *ngIf="!isModal" mat-icon-button type="button" (click)="onCancel()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h2 class="form-title" [class.modal-title]="isModal">{{ isEdit ? 'Edit Invoice' : 'Create Invoice' }}</h2>
+    <span class="spacer"></span>
+    <button *ngIf="isModal" mat-icon-button type="button" (click)="onCancel()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <mat-card class="form-card" [class.mat-elevation-z0]="isModal">
+    <form [formGroup]="invoiceForm" (ngSubmit)="onSubmit()" class="invoice-form">
+      
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="flex-field">
+          <mat-label>Customer Name</mat-label>
+          <input matInput formControlName="customerName" id="invoice-customer">
+          <mat-error *ngIf="invoiceForm.get('customerName')?.hasError('required')">
+            Customer name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="flex-field">
+          <mat-label>Booking Reference (Optional)</mat-label>
+          <input matInput formControlName="bookingId" id="invoice-booking">
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="flex-field">
+          <mat-label>Amount</mat-label>
+          <span matTextPrefix>$&nbsp;</span>
+          <input matInput type="number" formControlName="amount" id="invoice-amount" step="0.01">
+          <mat-error *ngIf="invoiceForm.get('amount')?.hasError('required')">Amount is required</mat-error>
+          <mat-error *ngIf="invoiceForm.get('amount')?.hasError('min')">Amount must be positive</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="flex-field">
+          <mat-label>Due Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dueDate" id="invoice-dueDate">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="invoiceForm.get('dueDate')?.hasError('required')">Due date is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="flex-field">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status" id="invoice-status">
+            <mat-option value="pending">Pending</mat-option>
+            <mat-option value="paid">Paid</mat-option>
+            <mat-option value="overdue">Overdue</mat-option>
+            <mat-option value="cancelled">Cancelled</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Notes</mat-label>
+          <textarea matInput formControlName="notes" rows="3" id="invoice-notes"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="form-actions" [class.modal-actions]="isModal">
+        <button mat-button type="button" (click)="onCancel()" id="cancel-btn">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" id="submit-btn">
+          {{ isEdit ? 'Update Invoice' : 'Submit Invoice' }}
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

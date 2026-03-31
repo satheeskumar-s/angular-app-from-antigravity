@@ -1,0 +1,84 @@
+@if (invoice) {
+  <div class="detail-container">
+    <div class="detail-header">
+      <button mat-icon-button (click)="goBack()"><mat-icon>arrow_back</mat-icon></button>
+      <h2 class="detail-title">Invoice Details</h2>
+      <span class="spacer"></span>
+      <button mat-stroked-button color="accent" (click)="navigateTo('/invoices/' + invoice.id + '/edit')">
+        <mat-icon>edit</mat-icon> Edit Invoice
+      </button>
+    </div>
+
+    <mat-card class="detail-card">
+      <div class="invoice-hero">
+        <div class="invoice-badge status-{{ invoice.status }}">
+          <mat-icon>receipt_long</mat-icon>
+        </div>
+        <div>
+          <h3 class="invoice-customer">{{ invoice.customerName }}</h3>
+          <p class="invoice-id">Invoice #{{ invoice.id }}</p>
+          <span class="status-chip status-{{ invoice.status }}">{{ invoice.status | titlecase }}</span>
+        </div>
+        <div class="spacer"></div>
+        <div class="invoice-amount-block">
+          <span class="amount-label">Total Amount</span>
+          <span class="amount-value">{{ invoice.amount | currency }}</span>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="detail-fields">
+        @if (invoice.bookingId) {
+          <div class="field-row">
+            <mat-icon class="field-icon">event</mat-icon>
+            <div class="field-data">
+              <span class="field-label">Linked Booking ID</span>
+              <span class="field-value">#{{ invoice.bookingId }}</span>
+            </div>
+          </div>
+        }
+
+        <div class="field-row">
+          <mat-icon class="field-icon">event_available</mat-icon>
+          <div class="field-data">
+            <span class="field-label">Due Date</span>
+            <span class="field-value">{{ invoice.dueDate | date:'fullDate' }}</span>
+          </div>
+        </div>
+
+        @if (invoice.notes) {
+          <div class="field-row">
+            <mat-icon class="field-icon">notes</mat-icon>
+            <div class="field-data">
+              <span class="field-label">Notes</span>
+              <span class="field-value">{{ invoice.notes }}</span>
+            </div>
+          </div>
+        }
+
+        <div class="field-row">
+          <mat-icon class="field-icon">schedule</mat-icon>
+          <div class="field-data">
+            <span class="field-label">Created At</span>
+            <span class="field-value">{{ invoice.createdAt | date:'longDate' }}</span>
+          </div>
+        </div>
+        
+        <div class="field-row">
+          <mat-icon class="field-icon">update</mat-icon>
+          <div class="field-data">
+            <span class="field-label">Last Updated</span>
+            <span class="field-value">{{ invoice.updatedAt | date:'longDate' }}</span>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+} @else {
+  <div class="not-found">
+    <mat-icon>error_outline</mat-icon>
+    <p>Invoice not found.</p>
+    <button mat-raised-button color="primary" (click)="goBack()">Back to Invoices</button>
+  </div>
+}
