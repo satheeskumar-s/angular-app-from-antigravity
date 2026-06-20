@@ -20,7 +20,18 @@ const mockSnackBar = { open: jest.fn() };
 
 function createFixture(paramId: string | null) {
   return TestBed.configureTestingModule({
-    imports: [UserFormComponent, NoopAnimationsModule],
+      imports: [
+        UserFormComponent,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatIconModule,
+        MatDividerModule,
+        MatSnackBarModule,
+      ],
     providers: [
       { provide: UserService, useValue: mockUserService },
       { provide: Router, useValue: mockRouter },

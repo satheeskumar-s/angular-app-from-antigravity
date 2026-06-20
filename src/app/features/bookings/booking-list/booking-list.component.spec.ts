@@ -33,7 +33,21 @@ describe('BookingListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BookingListComponent, NoopAnimationsModule],
+      imports: [
+        BookingListComponent,
+        BrowserAnimationsModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatTooltipModule,
+        MatDialogModule,
+        MatSnackBarModule,
+      ],
       providers: [
         { provide: BookingService, useValue: mockBookingService },
         { provide: Router, useValue: mockRouter },

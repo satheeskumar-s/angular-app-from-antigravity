@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { authGuard } from './auth.guard';
@@ -9,8 +10,7 @@ describe('authGuard', () => {
   const mockState = { url: '/home' } as RouterStateSnapshot;
   const mockRouter = { navigate: jest.fn(), createUrlTree: jest.fn((path) => path) };
 
-  const runGuard = () =>
-    TestBed.runInInjectionContext(() => authGuard(mockRoute, mockState));
+  const runGuard = () => TestBed.runInInjectionContext(() => authGuard(mockRoute, mockState));
 
   beforeEach(() => {
     localStorage.clear();

@@ -1,3 +1,5 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -6,6 +8,17 @@ import { of } from 'rxjs';
 import { UserListComponent } from './user-list.component';
 import { UserService } from '../../../core/services/user.service';
 import { User } from '../../../core/models/user.model';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const mockUsers: User[] = [
   {
@@ -31,11 +44,26 @@ describe('UserListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserListComponent, NoopAnimationsModule],
+      imports: [
+        UserListComponent,
+        NoopAnimationsModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatChipsModule,
+        MatTooltipModule,
+        MatDialogModule,
+      ],
       providers: [
         { provide: UserService, useValue: mockUserService },
         { provide: Router, useValue: mockRouter },
         { provide: MatSnackBar, useValue: mockSnackBar },
+        { provide: MatDialog, useValue: { open: jest.fn() } },
       ],
     }).compileComponents();
 

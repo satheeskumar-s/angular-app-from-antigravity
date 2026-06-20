@@ -23,7 +23,7 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeComponent, NoopAnimationsModule],
+      imports: [HomeComponent, BrowserAnimationsModule, MatCardModule, MatIconModule, MatButtonModule],
       providers: [
         { provide: Router, useValue: mockRouter },
         { provide: UserService, useValue: mockUserService },

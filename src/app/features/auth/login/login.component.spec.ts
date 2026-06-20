@@ -16,7 +16,7 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoginComponent, NoopAnimationsModule],
+      imports: [LoginComponent, BrowserAnimationsModule],
       providers: [
         { provide: Router, useValue: mockRouter },
         { provide: AuthService, useValue: mockAuthService },
